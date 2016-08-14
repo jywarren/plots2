@@ -20,6 +20,14 @@ class DrupalNode < ActiveRecord::Base
   self.table_name = 'node'
   self.primary_key = 'nid'
 
+  searchable do
+    text :title
+    # integer :vid
+    # integer :nid
+    # text :comments do
+    #   comments.map { |comment| comment.comment }
+  end
+
   extend FriendlyId
   friendly_id :friendly_id_string, use: [:slugged, :history]
 
