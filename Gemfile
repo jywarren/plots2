@@ -93,9 +93,7 @@ gem 'friendly_id'
 gem 'jbuilder'
 gem 'strong_parameters'
 
-group :solr_search do
-  gem 'sunspot_rails'
-  gem 'sunspot_solr'
-end
+gem 'sunspot_rails'
+gem 'sunspot_solr'
 
 gem 'http_accept_language'
