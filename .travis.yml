@@ -9,7 +9,7 @@ install:
   - docker-compose build
   - docker-compose run web sleep 5
   - docker-compose run web rake sunspot:solr:start RAILS_ENV=test
-  - docker-compose run web sleep 5
+  - docker-compose run web sleep 25
   - docker-compose run web rake db:setup
   - docker-compose run web rake db:migrate
   - docker-compose run web bower install --allow-root
