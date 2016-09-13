@@ -9,16 +9,12 @@ install:
   - docker-compose build
   - docker-compose run web sleep 5
   - docker-compose run web rake sunspot:solr:start
-  - docker-compose run web rake sunspot:solr:start RAILS_ENV=test
-  - docker-compose run web sleep 45
+  - docker-compose run web sleep 85
   - docker-compose run web wget http://localhost:8981/solr/
-  - docker-compose run web wget http://localhost:8983/solr/
   - docker-compose run web less index.html
   - docker-compose run web rake db:setup
   - docker-compose run web rake db:migrate
   - docker-compose run web bower install --allow-root
 
 script:
-  - docker-compose run web wget http://localhost:8982/solr/
-  - docker-compose run web less index.html
   - docker-compose run web bundle exec rake test:all
