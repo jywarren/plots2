@@ -17,33 +17,24 @@ function sortGrid(type, selector, headerLink) {
     var cellA = $(a).find('.' + type);
     var cellB = $(b).find('.' + type);
 
-    // look for data-timestamp, also insert it in application_helper.rb
-
     if (cellA.attr('data-timestamp')) {
 
-      console.log(cellA.attr('data-timestamp'), cellB.attr('data-timestamp'));
-
-      if (desc) return cellA.attr('data-timestamp') < cellB.attr('data-timestamp');
-      else      return cellA.attr('data-timestamp') > cellB.attr('data-timestamp');
+      if (desc) return cellA.attr('data-timestamp') < cellB.attr('data-timestamp') ? 0 : 1;
+      else      return cellA.attr('data-timestamp') > cellB.attr('data-timestamp') ? 1 : 0;
       
     } else {
 
-      console.log(cellA.text(), cellB.text());
-
-      if (desc) return cellA.text() < cellB.text();
-      else      return cellA.text() > cellB.text();
+      if (desc) return cellA.text() < cellB.text() ? -1 : 1;
+      else      return cellA.text() > cellB.text() ? 1 : 0;
 
     }
+
+    return 0;
 
   });
 
   table.html(rows);
   table.prepend(header);
-
-console.log('rows')
-rows.each(function(row) {
-  console.log(row,$(row).find('.' + type).text());
-});
 
   headerLink.toggleClass('desc');
 
