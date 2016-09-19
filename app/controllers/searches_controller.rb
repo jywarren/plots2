@@ -41,8 +41,8 @@ class SearchesController < ApplicationController
 
   def show
     @title = @search.title
-    @nodes = @search.notes(params[:month])
-    @solr_nodes = @search.notes(params[:month])
+    @nodes = @search.note_results(params[:month])
+    @solr_nodes = @search.note_results(params[:month])
     set_sidebar :tags, @search.key_words
   end
 
