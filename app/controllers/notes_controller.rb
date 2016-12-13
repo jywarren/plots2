@@ -10,11 +10,8 @@ class NotesController < ApplicationController
   end
 
   def stats
-    if params[:time]
-      @time = Time.parse(params[:time])
-    else
-      @time = Time.now
-    end
+    @start = params[:start] ? Time.parse(params[:start]) : Time.now
+    @end = params[:end] ? Time.parse(params[:end]) : Time.now
 
     @weekly_notes = DrupalNode.select([:created, :type, :status])
                               .where(type: 'note', status: 1, created: @time.to_i - 1.weeks.to_i..@time.to_i)

@@ -172,6 +172,7 @@ class DrupalNode < ActiveRecord::Base
 
   public
 
+  # span is the # of weeks before given time
   def self.weekly_tallies(type = "note", span = 52, time = Time.now)
     weeks = {}
     (0..span).each do |week|
