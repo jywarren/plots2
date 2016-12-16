@@ -68,6 +68,12 @@ class StatsController < ApplicationController
 
     @all_notes = nids.uniq.length
     @all_contributors = users.uniq.length
+    
+    #respond_with(nodes) do |format|
+    #  format.html { render 'stats/index' }
+    #  format.csv  { render csv: nodes }
+    #  format.json  { render json: [@notes_per_week_past_year, @edits_per_week_past_year] }
+    #end
   end
 
 end

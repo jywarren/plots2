@@ -70,6 +70,13 @@
   <h4><%= raw t('notes.stats.wiki_page_edits', :count => DrupalNodeRevision.count(:all)) %></h4>
   <p><%= raw t('notes.stats.edits_per_week', :count => @edits_per_week_past_year.round(2)) %></p>
 
+<!--
+  <p>
+    <a href="/stats.json?time=<%= @time.to_formatted_s(:long) %>">JSON download</a>,
+    <a href="/stats.csv?time=<%= @time.to_formatted_s(:long) %>">CSV download</a>,
+  </p>
+-->
+
 </div>
 
 <script type="text/javascript">

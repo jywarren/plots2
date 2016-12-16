@@ -5,13 +5,16 @@ class StatsControllerTest < ActionController::TestCase
   test "should assign correct value to graph_comments on GET stats" do
     Comment.delete_all
     Comment.create!({comment: 'blah', timestamp: Time.now() - 1})
+
     get :index
+
     assert_equal assigns(:graph_comments), Comment.comment_weekly_tallies(52, Time.now()).to_a.sort.to_json
     assert_response :success
   end
 
   test "should load stats range query" do
     get :range
+
     assert_response :success
     assert_not_nil assigns(:notes)
     assert_not_nil assigns(:wikis)
@@ -20,5 +23,15 @@ class StatsControllerTest < ActionController::TestCase
     assert_not_equal 0, assigns(:wikis)
     assert_not_equal 0, assigns(:people)
   end
+
+  #test "should load stats range query in JSON" do
+  #  get :index, format: :json
+
+  #  assert_response :success
+  #  json = JSON.parse(@response.body)
+  #  assert_not_nil json['notes']
+  #  assert_not_nil json['wikis']
+  #  assert_not_nil json['people']
+  #end
 
 end
