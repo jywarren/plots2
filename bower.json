@@ -25,7 +25,8 @@
     "i18n-js": "^2.1.2",
     "short-code-forms": "jywarren/short-code-forms#~0.0.1",
     "leaflet-blurred-location": "publiclab/leaflet-blurred-location#master",
-    "chart.js": "v2.7.0"
+    "chart.js": "v2.7.0",
+    "et-book": "edwardtufte/et-book#gh-pages"
   },
   "resolutions": {
     "jquery": "~2.1.0",
