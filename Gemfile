@@ -110,3 +110,7 @@ gem 'jbuilder'
 
 # Pin mustermann to Ruby 2.1 compatible
 gem 'mustermann' , '~> 0.4'
+
+#OAuth Based login
+gem 'omniauth', '~> 1.3', '>= 1.3.1'
+gem 'omniauth-facebook', '~> 3.0'
