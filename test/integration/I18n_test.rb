@@ -5,7 +5,7 @@ class I18nTest < ActionDispatch::IntegrationTest
     available_testing_locales.each do |lang|
       get '/home'
       get_via_redirect '/change_locale/' + lang.to_s
-      assert_select 'a[href=/wiki/issues]', I18n.t('layout._footer.getting_help.report_bug')
+      assert_select 'a[href=?]', '/wiki/issues', I18n.t('layout._footer.getting_help.report_bug')
     end
   end
 
@@ -281,7 +281,7 @@ class I18nTest < ActionDispatch::IntegrationTest
       follow_redirect!
 
       get '/login'
-      assert_select 'a[href=/signup]', I18n.t('user_sessions.new.sign_up')
+      assert_select 'a[href=?]', '/signup', I18n.t('user_sessions.new.sign_up')
     end
   end
 
@@ -398,7 +398,7 @@ class I18nTest < ActionDispatch::IntegrationTest
       follow_redirect!
 
       get '/contributors'
-      assert_select 'a[href=/post]', I18n.t('tag.contributors-index.write_research_note')
+      assert_select 'a[href=?]', '/post', I18n.t('tag.contributors-index.write_research_note')
     end
   end
 
