@@ -412,6 +412,7 @@ DEPENDENCIES
   rack-cors
   rack-openid
   rails (~> 4.2.9)
+  rails-dom-testing
   rails-i18n (~> 4.0.0)
   rails-perftest
   rails_autolink
