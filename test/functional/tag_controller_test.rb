@@ -39,7 +39,7 @@ class TagControllerTest < ActionController::TestCase
         id: 'question:*'
 
     assert_template :contributors
-    assert_select 'p.no-contributors'
+    css_select 'p.no-contributors'
   end
 
   test "won't add invalid tags" do
@@ -336,7 +336,7 @@ class TagControllerTest < ActionController::TestCase
 
     assert_select 'ul.nav-tabs' do
       assert_select 'li.active' do
-        assert_select "a[href = '/tag/test']", 1
+        assert_select "a[href = ?]",'/tag/test', 1
       end
     end
     assert_select '#notes.active', 1
