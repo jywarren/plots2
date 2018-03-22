@@ -23,21 +23,21 @@ class CommentMailer < ActionMailer::Base
     @giver = user.drupal_user
     @note = note
     @footer = feature('email-footer')
-    mail(to: note.author.email, subject: 'You were awarded a Barnstar!').deliver_now
+    mail(to: note.author.email, subject: 'You were awarded a Barnstar!')
   end
 
   def notify_callout(comment, user)
     @user = user
     @comment = comment
     @footer = feature('email-footer')
-    mail(to: user.email, subject: 'You were mentioned in a comment.').deliver_now
+    mail(to: user.email, subject: 'You were mentioned in a comment.')
   end
 
   def notify_tag_followers(comment, user)
     @user = user
     @comment = comment
     @footer = feature('email-footer')
-    mail(to: user.email, subject: 'A tag you follow was mentioned in a comment.').deliver_now
+    mail(to: user.email, subject: 'A tag you follow was mentioned in a comment.')
   end
 
   def notify_answer_author(user, comment)
