@@ -132,6 +132,7 @@ Plots2::Application.routes.draw do
   get 'sites/default/files/:filename.:format' => 'legacy#file'
   get 'sites/default/files/imagecache/:size/:filename.:format' => 'legacy#image'
 
+  get 'i/:id' => 'notes#image'
   get 'research' => 'home#research'
   get 'notes' => 'legacy#notes'
   get 'notes/author/:id' => 'notes#author'

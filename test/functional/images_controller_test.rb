@@ -9,6 +9,10 @@ class ImagesControllerTest < ActionController::TestCase
     activate_authlogic
   end
 
+
+  def shortlink
+    @image = Image.find params[:id]
+  end
   #  test "normal user should not delete image" do
   #    UserSession.new(drupal_users(:bob))
   #    post :delete, id: Image.last.id
